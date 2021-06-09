@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragmentLayoutSample"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/photoView"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="matrix" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar_sample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="55dp"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginTop="15dp"
+                app:tint="@color/grey"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_round_keyboard_arrow_up_24"
+                android:id="@+id/arrow"/>
+
+            <RelativeLayout
+                android:layout_marginVertical="15dp"
+                android:layout_below="@+id/arrow"
+                android:id="@+id/buttonPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    app:icon="@drawable/ic_twotone_remove_circle_24"
+                    app:cornerRadius="10dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="Remove"
+                    android:id="@+id/btnAdd"
+                    android:layout_marginHorizontal="25dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:textAllCaps="false"
+                    app:cornerRadius="10dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Colorise"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/btnColor"
+                    android:layout_marginHorizontal="25dp"/>
+
+
+
+
+
+            </RelativeLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/buttonPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="0dp">
+
+                <RelativeLayout
+                    android:layout_below="@+id/arrow"
+                    android:background="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:id="@+id/txtChoosePelletSample"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="choose pellet" />
+
+                    <TextView
+                        android:layout_marginEnd="20dp"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/yellow_color"
+                        android:id="@+id/btnUploadPellet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="+ Add pellet" />
+
+                    <RelativeLayout
+                        android:id="@+id/layoutCustomPellet"
+                        android:layout_width="102dp"
+                        android:layout_below="@+id/txtChoosePelletSample"
+                        android:layout_height="102dp">
+
+                        <ImageView
+                            android:layout_margin="3dp"
+                            android:scaleType="centerCrop"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/imgCustomPellet"/>
+
+                        <ImageView
+                            android:layout_margin="3dp"
+                            android:layout_alignParentEnd="true"
+                            android:id="@+id/btnRemoveCustomPellet"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_twotone_add_circle_24"
+                            android:rotation="45"/>
+
+
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:layout_toRightOf="@+id/layoutCustomPellet"
+                        android:id="@+id/pelletLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtChoosePelletSample"
+                        android:orientation="horizontal" >
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/samplePellets"
+                            android:orientation="horizontal" />
+
+                        <ImageView
+                            android:src="@color/darker_semitransparent"
+                            android:id="@+id/layoutHidePellet"
+                            android:layout_width="match_parent"
+                            android:layout_height="102dp"
+                            android:orientation="horizontal" />
+
+                    </FrameLayout>
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
